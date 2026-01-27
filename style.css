@@ -71,15 +71,16 @@ body {
 
 /* 分類標籤：圓角綠色塊 */
 .catalog {
+    align-self: flex-start;
     display: flex;
     justify-content: center;
     gap: 50px;
     margin-top: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .catalog span {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: bold;
     color: #6b8e23;
     background-color:whitesmoke;; /* 浮萍綠 */
@@ -136,12 +137,12 @@ body {
 }
 
 .giftbox-price {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #4a3728;
 }
 
 .giftbox-price .highlight {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: bold;
     color: #a67c52; /* 暖木棕 */
 }
@@ -174,7 +175,7 @@ body {
     padding: 20px;
     background-color: #fdfcf9;
     border-radius: 15px;
-    border-left: 3px solid #a67c52;
+    border-left: 2px solid #a67c52;
     
 }
 
@@ -194,6 +195,7 @@ body {
 
 .gift-buy-btn {
     font-family:'Noto Serif TC', serif;
+    font-size: 0.8rem;
     display: inline-block;
     align-self: flex-start;
     padding: 8px 15px;
@@ -731,61 +733,10 @@ body {
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
 }
 
-/* --- 2. 產品清單 (右側) 的動畫 --- */
-.prod-card:hover {
-    background-color: #faf9f6 !important; /* 淡淡的底色 */
-    transform: translateX(5px); /* 輕微向右位移，更有互動感 */
-}
-
-.prod-card:hover .prod-imgbox {
-    transform: scale(1.15) rotate(2deg); /* 放大並微旋轉 */
-    border-color: #6b8e23 !important; /* 邊框變綠 */
-    box-shadow: 0 8px 20px rgba(107, 142, 35, 0.2);
-}
-
-.prod-card:hover .prod-name {
-    color: #6b8e23 !important; /* 名字也變色 */
-}
-
-/* --- 3. 分類標籤 (Catalog) 與 禮盒 (Gift) 調整 --- */
-
-/* 縮小 Catalog 字體與間距 */
-.catalog {
-    gap: 15px !important; 
-    margin: 20px 0 !important;
-}
-
-.catalog span {
-    font-size: 0.75rem !important;
-    padding: 5px 12px !important;
-    letter-spacing: 1px;
-}
-
-.catalog span:hover {
-    background-color: #6b8e23 !important;
-    color: white !important;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(107, 142, 35, 0.3);
-}
-
-/* 禮盒區字體縮小 */
-.giftbox-title {
-    font-size: 1.4rem !important; /* 更加精緻的標題大小 */
-    letter-spacing: 1px;
-}
-
-.collection-label {
-    font-size: 0.65rem !important;
-    opacity: 0.8;
-}
 
 /* --- 4. 彈窗動畫與叉叉按鈕修正 --- */
 .modal-overlay {
     backdrop-filter: blur(8px); /* 增加背景模糊感 */
-}
-
-.modal-content {
-    animation: modalSlideUp 0.5s ease-out;
 }
 
 @keyframes modalSlideUp {
