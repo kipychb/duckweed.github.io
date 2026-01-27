@@ -1,0 +1,574 @@
+/* 基礎設定：燕麥底色 */
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f1ea; 
+    font-family:'Noto Serif TC', serif;
+    color: #4a3728; 
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+}
+
+.main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 20px 40px 20px;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.green{
+    background-color:#2d3e1d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;    /* 寬度滿版 */
+    height: 60px;   /* 建議給 nav 一個固定高度 */
+    margin-top: 0;
+
+    position: sticky; /* 捲動時固定在頂部 */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.logo-circle {
+    width: 55px;
+    height: auto;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.logo-circle img{
+    width:100%;
+    height:100%;
+}
+
+/* 標題區：橫向並排且垂直置中 */
+.logo-wrapper {
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+}
+
+.main-title {
+    font-size:30px;
+    letter-spacing: 8px;
+    color: #e0dcd0; 
+}
+
+/* 分類標籤：圓角綠色塊 */
+.catalog {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.catalog span {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #6b8e23;
+    background-color:whitesmoke;; /* 浮萍綠 */
+    border: #6b8e23 1px solid;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.catalog span:hover{
+    background-color: #6b8e23;
+    color:whitesmoke;
+    transform: translateY(1px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+
+}
+
+/* 內容區：左右*/
+.content-grid {
+    display: grid;
+    grid-template-columns: 7fr 3fr; 
+    gap: 40px;
+    align-items: stretch;
+}
+
+/* 禮盒展示區 */
+.giftbox-showcase {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(45, 62, 29, 0.05);
+    border: 1px solid #f0ede5;
+    display: flex;
+    flex-direction: column; 
+}
+
+.showcase-header {
+    margin-bottom: 10px;
+    border-left: 4px solid #6b8e23; /* 浮萍綠裝飾線 */
+    padding-left: 15px;
+}
+
+.collection-label {
+    font-size: 0.8rem;
+    color: #6b8e23;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.giftbox-title {
+    font-size: 1.8rem;
+    color: #2d3e1d;
+    margin: 3px 0;
+}
+
+.giftbox-price {
+    font-size: 1.1rem;
+    color: #4a3728;
+}
+
+.giftbox-price .highlight {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #a67c52; /* 暖木棕 */
+}
+
+
+/* 圖片與浮動標籤 */
+.showcase-visual {
+    width: 100%;          /* 讓容器先佔滿寬度 */
+    max-width: 400px;     /* 限制最大寬度，避免圖片在寬螢幕下太大 */
+    margin: 0 auto;    /* 關鍵：上下 20px，左右 auto 達成水平置中 */
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.main-gift-img {
+    width: 100%;          
+    height: auto;
+    transition: transform 0.5s ease;
+}
+
+.showcase-visual:hover .main-gift-img {
+    transform: scale(1.03); /* 滑過時微微放大圖片 */
+}
+
+/* 禮盒故事敘述 */
+.gift-story {
+    margin: 10px 0;
+    padding: 20px;
+    background-color: #fdfcf9;
+    border-radius: 15px;
+    border-left: 3px solid #a67c52;
+    
+}
+
+.story-text {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* 禮盒購買按鈕 */
+.gift-action {
+    margin: auto; /* 關鍵：將按鈕推至容器最底部 */
+    padding-top: 20px;
+    text-align: center;
+}
+
+.gift-buy-btn {
+    font-family:'Noto Serif TC', serif;
+    display: inline-block;
+    align-self: flex-start;
+    padding: 8px 15px;
+    background-color: #2d3e1d;
+    color: #f4f1ea;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(45, 62, 29, 0.2);
+}
+
+.gift-buy-btn:hover {
+    background-color: #6b8e23;
+    transform: translateY(-3px);
+}
+/*右側產品列表區 */
+.label-Tag {
+    background-color: #6b8e23; 
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+}
+
+.six-product {
+    display: flex;
+    flex-direction: column;
+    gap:0px;
+}
+
+.prod-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #e0dcd0; /* 更淡的分隔線 */
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.prod-card:last-child {
+    border-bottom: none;
+}/* 移除最後一個產品的底線*/
+
+
+.prod-card:hover{
+    background-color: #faf9f6;
+}
+
+.prod-card:hover, .prod-imgbox{
+    transform: scale(1.1);
+    border-color:  #6b8e23;
+}
+
+.prod-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; /* 徹底黏在一起 */
+    padding-left: 40px;
+}
+
+.prod-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; 
+    padding-right:40px;
+
+}
+
+.prod-imgbox {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: white;
+    overflow: hidden;
+    border: 1px solid #4a3728;
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.prod-imgbox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+.prod-name {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4a3728;
+    text-decoration: none; 
+}
+
+.price {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: #a67c52; 
+}
+
+
+.detail-btn{
+    background-color: transparent;
+    color:#4a3728;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+
+.footer-banner{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.eco-guarantee {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.8rem;
+    color: #888;
+    border-top: 1px dashed #ddd;
+    padding-top: 15px;
+}
+
+.mini-logo {
+    width: 30px;
+    height: 30px;
+    opacity: 0.8;
+}
+
+/* 商品頁*/
+
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(45, 62, 29, 0.85); /* 稍微加深遮罩 */
+    backdrop-filter: blur(10px); /* 增加模糊度更有層次 */
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+}
+
+.modal-content {
+    background: #f4f1ea;
+    width: 95%; /* 增加手機端適應性 */
+    max-width: 800px;
+    border-radius: 30px;
+    padding: 50px; /* 增加內距 */
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    animation: modalSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    align-items: center; /* 垂直居中對齊 */
+}
+
+/* 圖片區域 */
+.modal-image {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+#modalImg {
+    width: 100%;
+    height: 350px; /* 稍微拉高一點 */
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+}
+
+.eco-badge {
+    position: absolute;
+    top: 0px; left: 10px;
+    background:whitesmoke; /* 改為實色背景更醒目 */
+    color: #6b8e23;
+    border: 1px solid #6b8e23;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+}
+
+/* 內容資訊區域 */
+.modal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* 控制內部元素間距 */
+}
+
+.modal-info h2 {
+    font-size: 2rem;
+    margin: 0;
+    color: #4a3728;
+}
+
+.price-tag {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #a67c52;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.tag-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    background: #e0dcd0;
+    color:#4a3728;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.description {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+    margin: 10px 0 20px 0;
+}
+
+/* 修改按鈕：不再使用 absolute，讓它隨內容排列 */
+.add-to-cart {
+    font-family:'Noto Serif TC', serif;
+    align-self: flex-start; /* 按鈕寬度隨文字長度 */
+    background-color: #2d3e1d;
+    color: #e0dcd0;
+    padding:8px 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 15px rgba(45, 62, 29, 0.2);
+}
+
+.add-to-cart:hover {
+    background-color: #6b8e23;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(45, 62, 29, 0.3);
+}
+
+/* 關閉按鈕微調 */
+.close-btn {
+    position: absolute;
+    top: 25px; right: 25px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #4a3728;
+    transition: 0.3s;
+    opacity: 0.5;
+}
+
+.close-btn:hover {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+/* 手機版適配：這段非常重要 */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 30px;
+        margin: 20px;
+    }
+    .modal-grid {
+        grid-template-columns: 1fr; /* 變單欄 */
+        gap: 20px;
+    }
+    #modalImg {
+        height: 250px;
+    }
+    .modal-info {
+        text-align: center;
+        align-items: center;
+    }
+    .add-to-cart {
+        align-self: stretch; /* 按鈕在手機上變寬好點擊 */
+    }
+}
+
+
+
+
+/* 左側故事區：移除黑框，改用圓角背景 
+.story {
+    background:rgba(196, 193, 193, 0.05);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 強制內容全部置中 
+
+.story:hover{
+    transform: translateY(-5x);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+
+.intro-word{
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px 20px 0px 20px; /* 上、右、下、左 
+    margin-bottom: 0px;
+}
+
+.en-subtitle{
+    font-family:'playfair Display',serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color:#6b8e23;
+    display: block;
+
+}
+
+/* 新增這段針對「外層容器」的設定 
+.product-img {
+    width: 300px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-top:10px;     
+    margin-bottom: 0;
+}
+
+
+
+
+.drop-cap{
+    float:left;
+    font-size: 3rem;
+    line-height: 1;
+    padding:4px 8px 0 0;
+    color:#6b8e23;
+    font-weight: 700;
+}
+
+.story-words{
+    padding: 20px 80px;
+}
+
+.words-footer{
+    padding: 20px 80px;
+}
+*/

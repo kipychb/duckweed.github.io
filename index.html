@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>萍安麴福</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Noto+Sans+TC:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:wght@700;900&family=Noto+Serif+TC:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link>
+</head>
+
+<nav class="green">
+    <div class="nav-container">
+        <div class="logo-wrapper">
+            <div class="logo-circle">
+                <img src="image/沒字.png" alt="Logo">
+            </div>
+            <h1 class="main-title">萍安麴福</h1>
+        </div>
+    </div>
+</nav>
+
+<div class="main">
+    <header class="title">
+        <div class="catalog">
+            <span># 永續飲食</span>
+            <span># 蛋白質革命</span>
+            <span># 浮萍新食感</span>
+        </div>
+    </header>
+
+    <div class="content-grid">
+        <main class="giftbox-showcase">
+            <div class="showcase-header">
+                <span class="collection-label">Best Choice</span>
+                <h2 class="giftbox-title">萍安麴福・永續全禮盒</h2>
+                <p class="giftbox-price">禮盒加購價 <span class="highlight">$49</span></p>
+            </div>
+
+            <div class="showcase-visual">
+                <img src="image/禮盒.png" alt="萍安麴福禮盒" class="main-gift-img">
+            </div>
+
+            <div class="gift-story">
+                <h3 class="story-title">為什麼我們選擇「浮萍」？</h3>
+                <p class="story-text">
+                    浮萍被譽為「未來的超級食物」。它不僅擁有超越大豆的優質「植物性蛋白質」，生長速度更是極快，能在消耗極少水資源的情況下大量固碳。
+                    <br>
+                    我們將這種永續能量，結合傳統「米麴發酵技術」，讓豆渣與浮萍轉化為充滿抹茶香氣與天然甘甜的美味。這不只是一份禮盒，更是一場對地球溫柔的蛋白質革命。
+                </p>
+            </div>
+
+
+            <div class="gift-action">
+                <a href="https://your-order-link.com" class="gift-buy-btn">立即預訂此禮盒</a>
+            </div>
+
+        </main>
+        <aside class="product">
+            <div class="label-Tag">✦ 產品列表</div>
+            <div class="six-product">
+                <div class="prod-card" style="cursor: pointer;"
+                    onclick="openModal('浮萍麵包', 'image/浮萍麵包 .png', '「抹茶或海苔香氣，好運用好養生」<br> 添加浮萍新興原料可補充蛋白質，時尚吃，增肌力，超級食材浮萍生長速度快，在家也可自己養，添加於烘焙產品能產生', '25', ['增肌首選', '環保養生'])">
+                    <div class="prod-left">
+                        <div class="prod-imgbox"><img src="image/浮萍麵包 .png" alt="浮萍麵包"></div>
+                        <h4 class="prod-name">浮萍麵包</h4>
+                    </div>
+                    <div class="prod-right">
+                        <span class="price">$ 25</span>
+                        <a href="javascript:void(0)" class="detail-btn">產品細節</a>
+                    </div>
+                </div>
+
+                <div class="prod-card" style="cursor: pointer;"
+                    onclick="openModal('麴喜醬', 'image/麴喜醬.png', '「發酵無糖生乳抹醬，愈吃愈健康」<br>米麴豆渣自然發酵的天然甜味取代精製糖，要甜也要健康，而浮喜醬再添加入超級材料浮萍，增添風味','149',['發酵美學', '零添加糖'])">
+                    <div class="prod-left">
+                        <div class="prod-imgbox"><img src="image/麴喜醬.png" alt="麴喜醬"></div>
+                        <h4 class="prod-name">麴喜醬</h4>
+                    </div>
+                    <div class="prod-right">
+                        <span class="price">$ 149</span>
+                        <a href="javascript:void(0)" class="detail-btn">產品細節</a>
+                    </div>
+                </div>
+
+                <div class="prod-card" style="cursor: pointer;"
+                    onclick="openModal('杏浮球', 'image/杏浮球.png', '「一口吃進健康脂肪，運動補給的幸福首選」<br> 發酵豆渣搭配高蛋白豆渣與香脆堅果，製成一口大小的植物性能量球。富含植物蛋白、膳食纖維與健康脂肪，是運動後補充能量與日常健康零食的理想選擇,幸福又健康。', '549', ['運動補給', '能量爆發'])">
+                    <div class="prod-left">
+                        <div class="prod-imgbox"><img src="image/杏浮球.png" alt="杏浮球"></div>
+                        <h4 class="prod-name">杏浮球</h4>
+                    </div>
+                    <div class="prod-right">
+                        <span class="price">$ 549</span>
+                        <a href="javascript:void(0)" class="detail-btn">產品細節</a>
+                    </div>
+                </div>
+
+                <div class="prod-card" style="cursor: pointer;"
+                    onclick="openModal('浮喜醬', 'image/浮喜醬.png', '「發酵無糖生乳抹醬，愈吃愈健康」<br>米麴豆渣自然發酵的天然甜味取代精製糖，要甜也要健康，而浮喜醬再添加入超級材料浮萍，增添風味', '159', ['超級食物', '高蛋白'])">
+                    <div class="prod-left">
+                        <div class="prod-imgbox"><img src="image/浮喜醬.png" alt="浮喜醬"></div>
+                        <h4 class="prod-name">浮喜醬</h4>
+                    </div>
+                    <div class="prod-right">
+                        <span class="price">$ 159</span>
+                        <a href="javascript:void(0)" class="detail-btn">產品細節</a>
+                    </div>
+                </div>
+
+                <div class="prod-card" style="cursor: pointer;"
+                    onclick="openModal('萍安鬆', 'image/萍安鬆.png', '「香酥、輕盈、零負擔，餐桌上的美味點綴」<br> 嚴選米麴天然發酵精華，搭配高蛋白黃豆渣與超級植物浮萍，製成細緻鬆軟的植物性肉鬆風味粉。富含植物蛋白與膳食纖維，口感香酥、風味溫潤，可灑在吐司、粥品或沙拉中，輕鬆補充每日營養，無負擔又環保。', '109', ['純素可食', '高纖維'])">
+                    <div class="prod-left">
+                        <div class="prod-imgbox"><img src="image/萍安鬆.png" alt="萍安鬆"></div>
+                        <h4 class="prod-name">萍安鬆</h4>
+                    </div>
+                    <div class="prod-right">
+                        <span class="price">$ 109</span>
+                        <a href="javascript:void(0)" class="detail-btn">產品細節</a>
+                    </div>
+                </div>
+
+                <div class="prod-card" style="cursor: pointer;"
+                    onclick="openModal('原味麵包', 'image/原味麵包.png', '「24小時湯種熟成，鎖住極致保水感」<br> 採用低糖台式配方，搭配 24 小時低溫熟成湯種技術，讓麵包在不含化學添加物的情況下，依然保持如雲朵般的Q彈濕潤。冷藏後食用，風味更加迷人', '35',  ['低溫熟成', '極致保水'])">
+                    <div class="prod-left">
+                        <div class="prod-imgbox"><img src="image/原味麵包.png" alt="原味麵包"></div>
+                        <h4 class="prod-name">原味麵包</h4>
+                    </div>
+                    <div class="prod-right">
+                        <span class="price">$ 35</span>
+                        <a href="javascript:void(0)" class="detail-btn">產品細節</a>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </aside>
+    </div>
+
+    <footer class="footer-banner">
+        <div class="eco-guarantee">
+            <span>© 2026 萍安麴福 All Rights Reserved.</span>
+        </div>
+    </footer>
+</div>
+
+<div id="productModal" class="modal-overlay">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+
+        <div class="modal-grid">
+            <div class="modal-image">
+                <img id="modalImg" src="" alt="產品大圖">
+                <div class="eco-badge" id="modalEco">蛋白質upup!</div>
+            </div>
+
+            <div class="modal-info">
+                <h2><span id="modalName">產品名稱</span> <span class="price-tag">$<span id="modalPrice">0</span></span></h2>
+                <div class="tag-group" id="modalTags">
+                    <span class="tag">高蛋白</span>
+                    <span class="tag">低碳足跡</span>
+                </div>
+
+                <p id="modalDesc" class="description">產品描述載入中...</p>
+
+                <button class="add-to-cart">立即訂購</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="model.js"></script>
+</body>
+
+</html>
