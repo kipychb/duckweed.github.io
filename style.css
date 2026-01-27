@@ -573,85 +573,239 @@ body {
 }
 */
 
-/* --- 響應式佈局 (RWD) --- */
+/* ============================================================
+   1. 全域動畫補強 (電腦版滑鼠懸停效果)
+   ============================================================ */
 
-/* 平板與手機版共同調整 (螢幕小於 992px) */
+/* 確保所有互動元件都有過渡效果 */
+.catalog span, 
+.prod-card, 
+.prod-imgbox, 
+.gift-buy-btn, 
+.add-to-cart {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+/* 產品卡片懸停：背景變色、圖片放大旋轉 */
+.prod-card:hover {
+    background-color: #faf9f6 !important;
+}
+
+.prod-card:hover .prod-imgbox {
+    transform: scale(1.12) rotate(3deg) !important;
+    border-color: #6b8e23 !important;
+    box-shadow: 0 10px 20px rgba(107, 142, 35, 0.15);
+}
+
+.prod-card:hover .prod-name {
+    color: #6b8e23 !important;
+}
+
+/* 按鈕懸停：上浮、變色 */
+.gift-buy-btn:hover, 
+.add-to-cart:hover {
+    background-color: #6b8e23 !important;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(45, 62, 29, 0.25);
+}
+
+/* ============================================================
+   2. 字體與間距微調 (縮小精緻化)
+   ============================================================ */
+
+/* Catalog 標籤縮小 */
+.catalog {
+    gap: 12px !important;
+    margin: 20px 0 30px 0 !important;
+}
+
+.catalog span {
+    font-size: 0.75rem !important; /* 縮小字體 */
+    padding: 4px 12px !important;
+    letter-spacing: 1px;
+}
+
+/* 禮盒區字體縮小 */
+.collection-label {
+    font-size: 0.65rem !important;
+    letter-spacing: 1.5px;
+}
+
+.giftbox-title {
+    font-size: 1.45rem !important; /* 從 1.8 縮小到 1.45 */
+    margin: 5px 0 !important;
+}
+
+.story-text {
+    font-size: 0.85rem !important;
+    line-height: 1.7;
+}
+
+/* ============================================================
+   3. RWD 響應式佈局 (平板與手機)
+   ============================================================ */
+
+/* 平板尺寸 (992px 以下) */
 @media (max-width: 992px) {
-    .main {
-        padding: 10px 15px;
+    .content-grid {
+        grid-template-columns: 1fr; /* 左右並排變上下 */
+        gap: 40px;
     }
     
-    .content-grid {
-        grid-template-columns: 1fr; /* 讓禮盒區與產品區變成上下排列 */
-        gap: 30px;
+    .main {
+        padding: 15px;
     }
 
     .catalog {
-        gap: 15px; /* 縮小分類標籤間距 */
-        flex-wrap: wrap; /* 標籤太多時自動換行 */
+        flex-wrap: wrap; /* 自動換行 */
+        justify-content: center;
     }
 }
 
-/* 手機版細節調整 (螢幕小於 480px) */
+/* 手機尺寸 (480px 以下) */
 @media (max-width: 480px) {
-    /* 導覽列縮小 */
+    /* 標題縮小 */
     .main-title {
-        font-size: 20px;
+        font-size: 22px;
         letter-spacing: 4px;
     }
-    
-    .logo-circle {
-        width: 40px;
-    }
 
-    /* 禮盒展示區文字縮小 */
-    .giftbox-title {
-        font-size: 1.5rem;
-    }
-
-    .giftbox-showcase {
-        padding: 20px;
-    }
-
-    .gift-buy-btn {
-        width: 100%; /* 按鈕寬度佔滿，手機更好點擊 */
+    /* Catalog 在手機版變兩排排版 */
+    .catalog span {
+        flex: 0 1 calc(45% - 10px);
         text-align: center;
     }
 
-    /* 產品卡片調整 */
-    .prod-card {
-        padding: 15px 5px;
+    /* 禮盒區圖片調整 */
+    .showcase-visual {
+        max-width: 100%;
     }
 
-    .prod-left {
-        padding-left: 10px;
+    /* 產品卡片文字縮小，避免擠壓 */
+    .prod-name { font-size: 0.85rem; }
+    .price { font-size: 1rem; }
+    .prod-imgbox { width: 65px; height: 65px; }
+
+    /* --- 商品彈窗手機版優化 --- */
+    .modal-content {
+        padding: 50px 20px 30px !important;
+        width: 95%;
+        border-radius: 20px;
     }
 
-    .prod-right {
-        padding-right: 10px;
+    .modal-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
 
-    .prod-imgbox {
-        width: 60px; /* 縮小圓圈圖片 */
-        height: 60px;
+    #modalImg {
+        height: 220px;
     }
 
-    .prod-name {
-        font-size: 0.9rem;
+    /* 解決叉叉點不到的問題 */
+    .close-btn {
+        position: absolute;
+        top: 15px !important;
+        right: 15px !important;
+        z-index: 9999 !important; /* 確保最高層 */
+        background: white !important; /* 給個白底更明顯 */
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        font-size: 1.5rem !important;
+        line-height: 1;
+        opacity: 0.9;
     }
+}
 
-    .price {
-        font-size: 1rem;
-    }
+/* --- 1. 確保所有元件擁有「平滑過渡」屬性 --- */
+.prod-card, 
+.prod-imgbox, 
+.gift-buy-btn, 
+.add-to-cart, 
+.catalog span {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
 
-    /* Footer 調整 */
-    .footer-banner {
-        flex-direction: column; /* Footer 內容垂直排列 */
-        gap: 10px;
-    }
-    
-    .eco-guarantee {
-        flex-direction: column;
-        text-align: center;
+/* --- 2. 產品清單 (右側) 的動畫 --- */
+.prod-card:hover {
+    background-color: #faf9f6 !important; /* 淡淡的底色 */
+    transform: translateX(5px); /* 輕微向右位移，更有互動感 */
+}
+
+.prod-card:hover .prod-imgbox {
+    transform: scale(1.15) rotate(2deg); /* 放大並微旋轉 */
+    border-color: #6b8e23 !important; /* 邊框變綠 */
+    box-shadow: 0 8px 20px rgba(107, 142, 35, 0.2);
+}
+
+.prod-card:hover .prod-name {
+    color: #6b8e23 !important; /* 名字也變色 */
+}
+
+/* --- 3. 分類標籤 (Catalog) 與 禮盒 (Gift) 調整 --- */
+
+/* 縮小 Catalog 字體與間距 */
+.catalog {
+    gap: 15px !important; 
+    margin: 20px 0 !important;
+}
+
+.catalog span {
+    font-size: 0.75rem !important;
+    padding: 5px 12px !important;
+    letter-spacing: 1px;
+}
+
+.catalog span:hover {
+    background-color: #6b8e23 !important;
+    color: white !important;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(107, 142, 35, 0.3);
+}
+
+/* 禮盒區字體縮小 */
+.giftbox-title {
+    font-size: 1.4rem !important; /* 更加精緻的標題大小 */
+    letter-spacing: 1px;
+}
+
+.collection-label {
+    font-size: 0.65rem !important;
+    opacity: 0.8;
+}
+
+/* --- 4. 彈窗動畫與叉叉按鈕修正 --- */
+.modal-overlay {
+    backdrop-filter: blur(8px); /* 增加背景模糊感 */
+}
+
+.modal-content {
+    animation: modalSlideUp 0.5s ease-out;
+}
+
+@keyframes modalSlideUp {
+    from { opacity: 0; transform: translateY(30px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* 手機版叉叉加強 */
+@media (max-width: 480px) {
+    .close-btn {
+        z-index: 9999 !important;
+        background: white !important;
+        width: 35px !important;
+        height: 35px !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
+        top: 15px !important;
+        right: 15px !important;
     }
 }
