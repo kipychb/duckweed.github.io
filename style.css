@@ -83,7 +83,7 @@ body {
     font-size: 0.75rem;
     font-weight: bold;
     color: #6b8e23;
-    background-color:whitesmoke;; /* 浮萍綠 */
+    background-color:whitesmoke; /* 浮萍綠 */
     border: #6b8e23 1px solid;
     padding: 5px 15px;
     border-radius: 20px;
@@ -180,9 +180,9 @@ body {
 }
 
 .story-text {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: #555;
-    line-height: 1.8;
+    line-height: 2;
     text-align: justify;
 }
 
@@ -368,6 +368,7 @@ body {
     position: relative;
     box-shadow: 0 25px 50px rgba(0,0,0,0.2);
     animation: modalSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: visible !important; /* 確保標籤能飄出邊界 */
 }
 
 .modal-grid {
@@ -381,21 +382,22 @@ body {
 .modal-image {
     position: relative;
     width: 100%;
-    overflow: hidden;
+    overflow: visible !important; /* 修改：讓 badge 完整顯示 */
 }
 
 #modalImg {
     width: 100%;
     height: auto; /* 稍微拉高一點 */
-    object-fit: cover;
+    object-fit: contain; /* 修改：確保圖片不被切掉 */
     display: block;
     border-radius: 20px;
 }
 
 .eco-badge {
     position: absolute;
-    top: 0px; left: 10px;
-    background:whitesmoke; /* 改為實色背景更醒目 */
+    top: 0px; 
+    left: 10px;
+    background: whitesmoke; 
     color: #6b8e23;
     border: 1px solid #6b8e23;
     padding: 6px 14px;
@@ -403,7 +405,7 @@ body {
     font-size: 0.75rem;
     font-weight: bold;
     letter-spacing: 1px;
-
+    z-index: 10001; /* 確保在圖片上層 */
 }
 
 /* 內容資訊區域 */
@@ -446,7 +448,7 @@ body {
     font-size: 1rem;
     line-height: 1.8;
     color: #555;
-    margin: 10px 0 20px 0;
+    margin: 0 20px;
 }
 
 /* 修改按鈕：不再使用 absolute，讓它隨內容排列 */
@@ -481,6 +483,7 @@ body {
     color: #4a3728;
     transition: 0.3s;
     opacity: 0.5;
+    z-index: 10002;
 }
 
 .close-btn:hover {
@@ -488,95 +491,8 @@ body {
     transform: rotate(90deg);
 }
 
-/* 手機版適配：這段非常重要 */
-@media (max-width: 768px) {
-    .modal-content {
-        padding: 30px;
-        margin: 20px;
-    }
-    .modal-grid {
-        grid-template-columns: 1fr; /* 變單欄 */
-        gap: 20px;
-    }
-    #modalImg {
-        height: 250px;
-    }
-    .modal-info {
-        text-align: center;
-        align-items: center;
-    }
-    .add-to-cart {
-        align-self: stretch; /* 按鈕在手機上變寬好點擊 */
-    }
-}
-
-
-
-
-/* 左側故事區：移除黑框，改用圓角背景 
-.story {
-    background:rgba(196, 193, 193, 0.05);
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* 強制內容全部置中 
-
-.story:hover{
-    transform: translateY(-5x);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-
-.intro-word{
-    font-size: 1.8rem;
-    font-weight: bold;
-    text-align: center;
-    padding: 20px 20px 0px 20px; /* 上、右、下、左 
-    margin-bottom: 0px;
-}
-
-.en-subtitle{
-    font-family:'playfair Display',serif;
-    font-weight: 400;
-    font-size: 1rem;
-    color:#6b8e23;
-    display: block;
-
-}
-
-/* 新增這段針對「外層容器」的設定 
-.product-img {
-    width: 300px;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    margin-top:10px;     
-    margin-bottom: 0;
-}
-
-
-
-
-.drop-cap{
-    float:left;
-    font-size: 3rem;
-    line-height: 1;
-    padding:4px 8px 0 0;
-    color:#6b8e23;
-    font-weight: 700;
-}
-
-.story-words{
-    padding: 20px 80px;
-}
-
-.words-footer{
-    padding: 20px 80px;
-}
-*/
-
 /* ============================================================
-   1. 全域動畫補強 (電腦版滑鼠懸停效果)
+   RWD 與動畫區塊
    ============================================================ */
 
 /* 確保所有互動元件都有過渡效果 */
@@ -588,7 +504,6 @@ body {
 .add-to-cart {
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
 }
-
 
 /* 產品卡片懸停：背景變色、圖片放大旋轉 */
 .prod-card:hover {
@@ -613,42 +528,6 @@ body {
     box-shadow: 0 8px 20px rgba(45, 62, 29, 0.25);
 }
 
-/* ============================================================
-   2. 字體與間距微調 (縮小精緻化)
-   ============================================================ */
-
-/* Catalog 標籤縮小 */
-.catalog {
-    gap: 12px !important;
-    margin: 20px 0 30px 0 !important;
-}
-
-.catalog span {
-    font-size: 0.75rem !important; /* 縮小字體 */
-    padding: 4px 12px !important;
-    letter-spacing: 1px;
-}
-
-/* 禮盒區字體縮小 */
-.collection-label {
-    font-size: 0.65rem !important;
-    letter-spacing: 1.5px;
-}
-
-.giftbox-title {
-    font-size: 1.45rem !important; /* 從 1.8 縮小到 1.45 */
-    margin: 5px 0 !important;
-}
-
-.story-text {
-    font-size: 0.85rem !important;
-    line-height: 1.7;
-}
-
-/* ============================================================
-   3. RWD 響應式佈局 (平板與手機)
-   ============================================================ */
-
 /* 平板尺寸 (992px 以下) */
 @media (max-width: 992px) {
     .content-grid {
@@ -661,84 +540,135 @@ body {
     }
 
     .catalog {
-        flex-wrap: wrap; /* 自動換行 */
         justify-content: center;
+        gap: 15px !important;
+        margin: 20px 0 30px 0 !important;
+    }
+
+    .catalog span {
+        font-size: 0.75rem !important; 
+        padding: 4px 12px !important;
+        letter-spacing: 1px;
     }
 }
 
-/* 手機尺寸 (480px 以下) */
+/* 中尺寸手機 (768px 以下) */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 40px 30px;
+        margin: 20px;
+    }
+    .modal-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    #modalImg {
+        display: block;      /* 關鍵：將圖片轉為區塊元素 */
+        margin: 0 auto;      /* 關鍵：左右自動間距達成置中 */
+        max-width: 100%;     /* 確保不超出容器 */
+        height: auto;
+        object-fit: contain;
+    }
+    .modal-info {
+        text-align: center;
+        align-items: center;
+    }
+    .add-to-cart {
+        align-self: stretch;
+    }
+}
+
+/* 小尺寸手機 (480px 以下) */
 @media (max-width: 480px) {
-    /* 標題縮小 */
     .main-title {
         font-size: 22px;
         letter-spacing: 4px;
     }
 
-    /* Catalog 在手機版變兩排排版 */
-    .catalog span {
-        flex: 0 1 calc(45% - 10px);
-        text-align: center;
-    }
 
-    /* 禮盒區圖片調整 */
-    .showcase-visual {
-        max-width: 100%;
-    }
-
-    /* 產品卡片文字縮小，避免擠壓 */
+    /* 產品列表微調 */
     .prod-name { font-size: 0.85rem; }
     .price { font-size: 1rem; }
     .prod-imgbox { width: 65px; height: 65px; }
 
-    /* --- 商品彈窗手機版優化 --- */
+    /* 商品彈窗優化 */
     .modal-content {
         padding: 50px 20px 30px !important;
-        width: 95%;
+        width: 92%;
         border-radius: 20px;
     }
 
-    .modal-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
+    .modal-grid { 
+        grid-template-columns: 1fr; 
+        gap: 15px; 
     }
 
-    #modalImg {
-        height: 220px;
+    #modalImg { 
+        max-height: 280px; 
+        width: auto;
     }
 
-    /* 解決叉叉點不到的問題 */
+    /* 產品敘述對齊 */
+    .description {
+        font-size: 0.88rem;
+        line-height: 1.7;
+        text-align: justify; 
+        margin: 20px 0;
+    }
+
+    .modal-info h2 { font-size: 1.4rem; text-align: center; }
+    .add-to-cart { width: 100%; } 
+
+    /* 修正叉叉按鈕：置於右側頂端 */
     .close-btn {
         position: absolute;
         top: 15px !important;
         right: 15px !important;
-        z-index: 9999 !important; /* 確保最高層 */
-        background: white !important; /* 給個白底更明顯 */
-        width: 36px;
-        height: 36px;
+        z-index: 10005 !important;
+        background: white !important;
+        width: 35px;
+        height: 35px;
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        font-size: 1.5rem !important;
-        line-height: 1;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         opacity: 0.9;
+    }
+
+    /* 核心修正：讓 eco-badge 對齊叉叉按鈕的高度與間距 (左側對稱) */
+    .eco-badge {
+        position: absolute !important;
+        top: -15px !important;   /* 與叉叉按鈕 top 對齊 */
+        left: 15px !important;  /* 與叉叉按鈕 right 對齊對應 */
+        z-index: 10005 !important;
+        padding: 5px 12px !important;
+        font-size: 0.7rem !important;
+        background: whitesmoke !important;
+        border: 1px solid #6b8e23 !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+        overflow: visible !important;
     }
 }
 
-/* --- 1. 確保所有元件擁有「平滑過渡」屬性 --- */
-.prod-card, 
-.prod-imgbox, 
-.gift-buy-btn, 
-.add-to-cart, 
-.catalog span {
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+@media (max-width: 480px) {
+    .showcase-visual {
+        display: flex;
+        justify-content: center; /* 水平置中 */
+        align-items: center;     /* 垂直置中 */
+        width: 100%;
+        margin: 0 auto;          /* 確保容器本身也在中央 */
+    }
+    
+    .main-gift-img {
+        max-width: 80% !important; /* 讓圖片縮小一點點，置中感更明顯 */
+        height: auto;
+    }
 }
 
-
-/* --- 4. 彈窗動畫與叉叉按鈕修正 --- */
+/* 彈窗動畫 */
 .modal-overlay {
-    backdrop-filter: blur(8px); /* 增加背景模糊感 */
+    backdrop-filter: blur(8px);
 }
 
 @keyframes modalSlideUp {
@@ -746,19 +676,59 @@ body {
     to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* 手機版叉叉加強 */
-@media (max-width: 480px) {
-    .close-btn {
-        z-index: 9999 !important;
-        background: white !important;
-        width: 35px !important;
-        height: 35px !important;
-        border-radius: 50% !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
-        top: 15px !important;
-        right: 15px !important;
-    }
+/* --- 原有註解區塊保留 --- */
+/* 左側故事區：移除黑框，改用圓角背景 
+.story {
+    background:rgba(196, 193, 193, 0.05);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+
+.story:hover{
+    transform: translateY(-5x);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
+
+.intro-word{
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px 20px 0px 20px; 
+    margin-bottom: 0px;
+}
+
+.en-subtitle{
+    font-family:'playfair Display',serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color:#6b8e23;
+    display: block;
+}
+
+.product-img {
+    width: 300px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-top:10px;     
+    margin-bottom: 0;
+}
+
+.drop-cap{
+    float:left;
+    font-size: 3rem;
+    line-height: 1;
+    padding:4px 8px 0 0;
+    color:#6b8e23;
+    font-weight: 700;
+}
+
+.story-words{
+    padding: 20px 80px;
+}
+
+.words-footer{
+    padding: 20px 80px;
+}
+*/
